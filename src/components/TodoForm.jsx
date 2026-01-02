@@ -15,7 +15,7 @@ export default function TodoForm({ onAddTodo }) {
   return (
     <form 
       onSubmit={handleSubmit} 
-      className="bg-gray-100 p-6 rounded-xl  shadow-md border border-gray-100 mx-auto mt-8"
+      className="bg-gray-200  p-6 rounded-xl  shadow-xl/35 border border-gray-100 mx-auto mt-8"
     >
       <div className="flex flex-col md:flex-row gap-4">
         <div className="relative grow">
@@ -24,7 +24,7 @@ export default function TodoForm({ onAddTodo }) {
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="What needs to be done?"
-            className="w-full  pl-4 pr-10 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all text-gray-700"
+            className="w-full  pl-4 pr-10 py-3 border-2 border-gray-100 hover:shadow-xl/15 focus:shadow-xl/15 rounded-lg focus:border-green-300 focus:outline-none transition-all text-gray-700"
           />
           {/* Optional Icon inside input */}
           <span className="absolute right-3 top-3.5 text-gray-400">

@@ -3,11 +3,11 @@ import { Button } from "./Button";
 export default function TodoItem({ task = "Buy groceries", id = "todo-1" }) {
   return (
     /* Matches Form: max-w-md, mx-auto, p-6, bg-white */
-    <div className="w-full mx-auto bg-gray-100 px-2 flex flex-col gap-4 rounded-xl shadow-md border border-gray-100 mt-4">
+    <div className="w-full mx-auto bg-gray-300 px-2 flex flex-col gap-4 rounded-xl shadow-xl/35 border border-gray-100 mt-4">
       
       {/* Keeping the Title inside as you had it, but smaller to match the compact feel */}
       <div className="flex justify-center">
-        <h4 className="text-2xl font-bold text-gray-500">Todo List</h4>
+        <h4 className="text-2xl font-semibold text-shadow-lg/30  text-gray-50">Todo List</h4>
       </div>
 
       {/* Row Layout */}
@@ -25,7 +25,7 @@ export default function TodoItem({ task = "Buy groceries", id = "todo-1" }) {
             className="ms-3 select-none cursor-pointer"
           >
             {/* Reduced text size to 1xl/lg to feel less "huge" */}
-            <span className="text-lg font-medium text-gray-500 capitalize">
+            <span className="text-lg font-medium text-black text-shadow-lg/5  capitalize">
               {task}
             </span>
           </label>
