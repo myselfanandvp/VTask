@@ -1,47 +1,61 @@
 import { useState } from "react";
-import { Button } from "./Button"; 
+import { Button } from "./Button";
+import {TodoItem} from "./TodoItem";
+import {SearchBar} from "./Searchbar";
 
-export default function TodoForm({ onAddTodo }) {
+export default function TodoForm() {
   const [task, setTask] = useState("");
+  const [task_list, setTask_list] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!task.trim()) return; // Don't add empty tasks
-    
-    onAddTodo(task); // Pass the data to the parent
-    setTask(""); // Clear input
+    if (!task.trim()) return;
+
+    setTask_list(prev => [...prev, task]);
+    setTask("");
   };
 
   return (
-    <form 
-      onSubmit={handleSubmit} 
-      className="bg-gray-200  p-6 rounded-xl  shadow-xl/35 border border-gray-100 mx-auto mt-8"
-    >
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="relative grow">
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gray-200 p-6 rounded-xl shadow-xl/35 border border-gray-100 mx-auto mt-8"
+      >
+        <div className="flex flex-col md:flex-row gap-4">
           <input
             type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="What needs to be done?"
-            className="w-full  pl-4 pr-10 py-3 border-2 border-gray-100 hover:shadow-xl/15 focus:shadow-xl/15 rounded-lg focus:border-green-300 focus:outline-none transition-all text-gray-700"
+            className="w-full pl-4 pr-10 py-3 border-2 border-gray-100 rounded-lg"
           />
-          {/* Optional Icon inside input */}
-          <span className="absolute right-3 top-3.5 text-gray-400">
-            📝
-          </span>
+          <Button type="submit" text="AddTask" color="green" />
+        </div>
+      </form>
+
+      <div className="mt-4">
+        <div className="flex justify-center pb-2 flex-col items-center gap-4">
+          <h2 className="text-5xl font-bold text-gray-100 text-shadow-lg/30 ">Todo List</h2>
+          <SearchBar />
         </div>
 
-        <Button 
-        type="submit"
-          text="Add Task" 
-          color="green" 
-        />
+<div className="max-h-64 mt-5 overflow-y-auto space-y-4 bg-gray-300 p-2">
+ {task_list.map((t, index) => (
+          
+          <TodoItem
+            key={index}
+            id={`todo-${index}`}
+            task={t}
+            onDelete={() => {
+              setTask_list(prev =>
+                prev.filter((_,i) => i !== index)
+              );
+            }}
+          />
+        ))}
+  </div>
+       
       </div>
-      
-      <p className="mt-2 text-xs text-gray-400">
-        Tip: Press Enter to quickly add a task.
-      </p>
-    </form>
+    </>
   );
 }
