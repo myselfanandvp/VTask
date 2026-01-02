@@ -1,5 +1,3 @@
-import { Button } from "./Button"
-
 const  SearchBar=()=>{
 return (
     <form className="w-full mx-auto shadow-2xl px-2">   

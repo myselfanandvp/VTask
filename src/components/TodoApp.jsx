@@ -1,4 +1,4 @@
-import {TodoForm} from "./TodoForm"
+import TodoForm from "./TodoForm"
 
 
 const TodoApp = ()=>{

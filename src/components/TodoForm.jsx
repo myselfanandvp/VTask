@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "./Button";
-import {TodoItem} from "./TodoItem";
-import {SearchBar} from "./Searchbar";
+import {Button}  from "./Button";
+import TodoItem from "./TodoItem";
+import SearchBar from "./Searchbar";
 
 export default function TodoForm() {
   const [task, setTask] = useState("");
