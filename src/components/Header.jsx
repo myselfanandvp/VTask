@@ -1,4 +1,4 @@
-import vtask_icon from '../assets/vtask_icon1.png';
+import vtask_icon from '../assets/vtask_icon.png';
 
 const Header = () => {
  

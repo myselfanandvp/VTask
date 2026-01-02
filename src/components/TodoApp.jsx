@@ -3,7 +3,7 @@ import TodoItem from "./TodoList"
 
 const TodoApp = ()=>{
     return (
-        <div>
+        <div className="flex flex-col gap-3 w-full">
            <TodoForm/>
            <TodoItem/>
         </div>

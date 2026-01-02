@@ -1,7 +1,7 @@
 import Home from "./pages/Home/Home";
 const App = () => {
   return (
-    <div>
+    <div className="bg-gray-800">
       <Home/>
     </div>
   );
